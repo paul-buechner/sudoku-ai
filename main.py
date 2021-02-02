@@ -57,7 +57,7 @@ def grid_operator(image, model):
             # Process image for further operations
             image_processed, state = processing(image_crop)
 
-            # Skip manually by boday ratio:
+            # Skip manually by ratio:
             if state == True:
                 board.append(str(1))
 
