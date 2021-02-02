@@ -4,7 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/paul-buechner/sudoku-ai)]()
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/paul-buechner/sudoku-ai)]()
 
-Sudoku AI is an sudoku solving algorithm recognizing real images using neural-network trained on MNIST dataset with tensorflow.
+Sudoku AI is a sudoku solving algorithm recognizing real images using neural-network trained on MNIST dataset with tensorflow.
 
 It also can perform a live digit recognition via camera feed.
 
