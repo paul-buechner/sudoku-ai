@@ -9,8 +9,8 @@ Sudoku AI is an sudoku solving algorithm recognizing real images using neural-ne
 It also can perform a live digit recognition via camera feed.
 
 <div align="center" style="padding:5px;">
-<img src="https://media.giphy.com/media/ASAPIID1mWIUABjMYB/giphy.gif" style="margin: 10px;" width="250" height="220"/>
-<img src="https://media.giphy.com/media/nOuBaamMmtVH2E60op/giphy.gif" style="margin: 10px;" width="250" height="220"/>
+<img src="https://media.giphy.com/media/ASAPIID1mWIUABjMYB/giphy.gif" align="left" style="margin: 10px;" width="300" height="225"/>
+<img src="https://media.giphy.com/media/nOuBaamMmtVH2E60op/giphy.gif" align="right" style="margin: 10px;" width="300" height="225"/>
 </div>
 
 # Installation
