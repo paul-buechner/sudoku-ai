@@ -109,13 +109,20 @@ def scan(image):
     edged = cv2.Canny(gray, 75, 160)  # 200 default for y
 
     # show the original image and the edge detected image
-
-    '''print("STEP 1: Edge Detection")
+    '''
+    print("STEP 1: Edge Detection")
     cv2.imshow("Image", image)
+    cv2.imwrite("assets/processing/image.jpg", image)
+
     cv2.imshow("Edged", edged)
+    cv2.imwrite("assets/processing/edged.jpg", edged)
+
     cv2.imshow("Blur", gray)
+    cv2.imwrite("assets/processing/blur.jpg", gray)
+
     cv2.waitKey(0)
-    cv2.destroyAllWindows()'''
+    cv2.destroyAllWindows()
+    '''
 
     # find the contours in the edged image, keeping only the
     # largest ones, and initialize the screen contour
@@ -139,7 +146,10 @@ def scan(image):
     '''
     print("STEP 2: Find contours of paper")
     cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
+
     cv2.imshow("Outline", image)
+    cv2.imwrite("assets/processing/outline.jpg", image)
+
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     '''
@@ -162,10 +172,16 @@ def scan(image):
     # show the original and scanned images
     '''
     print("STEP 3: Apply perspective transform")
+
     cv2.imshow("Original", imutils.resize(orig, height=650))
+
     cv2.imshow("Scanned", imutils.resize(warped, height=650))
-    cv2.imshow("TH3", imutils.resize(th3, height=650))
+    cv2.imwrite("assets/processing/warped.jpg", warped)
+
+    # cv2.imshow("TH3", imutils.resize(th3, height=650))
+
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
     '''
 
     return warped
@@ -207,7 +223,7 @@ def processing(image):
         padded_digit = np.pad(resized_digit, ((5, 5), (7, 7)),
                               "constant", constant_values=0)
 
-    cv2.imwrite("assets\processing\processing_step3.jpg", padded_digit)
+    cv2.imwrite("assets/processing/processing_step3.jpg", padded_digit)
     processed_image = padded_digit.reshape(
         1, IMAGE_DIMENSIONS[0], IMAGE_DIMENSIONS[1], 1)
 
@@ -221,9 +237,13 @@ def sort(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     thresh = cv2.adaptiveThreshold(
         gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 33, 5)
+    '''
+    cv2.imshow("thresh", thresh)
+    cv2.imwrite("assets/processing/thresh.jpg", thresh)
 
-    '''cv2.imshow("thresh", thresh)
-    cv2.waitKey()'''
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+    '''
 
     # Filter out all numbers and noise to isolate only boxes
     cnts = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -243,9 +263,13 @@ def sort(image):
 
     # Sort by top to bottom and each row by left to right
     invert = 255 - thresh
+    '''
+    cv2.imshow("invert", invert)
+    cv2.imwrite("assets/processing/invert.jpg", invert)
 
-    '''cv2.imshow("invert", invert)
-    cv2.waitKey()'''
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+    '''
 
     cnts = cv2.findContours(invert, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cnts = cnts[0] if len(cnts) == 2 else cnts[1]

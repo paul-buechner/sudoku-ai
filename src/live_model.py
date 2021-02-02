@@ -25,13 +25,23 @@ width = 640
 height = 480
 threshold = 80
 image_dimensions = (28, 28, 3)
-padding_row = 10
-padding_col = 10
 
 
 cap = cv2.VideoCapture(0)
 cap.set(3, width)
 cap.set(4, height)
+
+'''
+# Default resolutions of the frame are obtained.The default resolutions are system dependent.
+# We convert the resolutions from float to integer.
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
+
+# Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
+# Define the fps to be equal to 10. Also frame size is passed.
+out = cv2.VideoWriter("media/output.avi", cv2.VideoWriter_fourcc(
+    'M', 'J', 'P', 'G'), 10, (frame_width, frame_height))
+'''
 
 # !! Load Model !!
 model = tf.keras.models.load_model('model/model_tf.h5')
@@ -117,6 +127,9 @@ while True:
     # '''
     cv2.imshow("Original Image: ", image_original)
     # cv2.imshow("Processing Image: ", thresh)
+
+    # Save as video
+    '''out.write(image_original)'''
 
     if cv2.waitKey(1) and 0xFF == ord('q'):
         break
