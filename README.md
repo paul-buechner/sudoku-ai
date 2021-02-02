@@ -1,3 +1,21 @@
+<style>
+
+.container {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+
+.gif {
+  margin: 5px; 
+}
+
+</style>
+
 # Sudoku AI - Neural Network
 
 [![license](https://img.shields.io/pypi/l/ansicolortags.svg)]()
@@ -7,6 +25,11 @@
 Sudoku AI is an sudoku solving algorithm recognizing real images using neural-network trained on MNIST dataset with tensorflow.
 
 It also can perform a live digit recognition via camera feed.
+
+<div class="container">
+<img src="https://media.giphy.com/media/ASAPIID1mWIUABjMYB/giphy.gif" class="gif" width="250" height="220"/>
+<img src="https://media.giphy.com/media/nOuBaamMmtVH2E60op/giphy.gif" class="gif" width="250" height="220"/>
+</div>
 
 # Installation
 
@@ -30,7 +53,7 @@ If you are using Anaconda Environment execute the following steps:
 - Create a conda environment using `conda env create -f environment.yml`
 - Activate the created environment `conda activate sudoku-ai`
 
-# Tensorflow 
+# Tensorflow
 
 The following NVIDIA® software must be installed on your system:
 
