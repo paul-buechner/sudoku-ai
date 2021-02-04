@@ -96,15 +96,17 @@ while True:
         (top_y, top_x) = (np.min(y), np.min(x))
         (bottom_y, bottom_x) = (np.max(y), np.max(x))
         image_crop = image[top_y - 5:bottom_y + 5, top_x - 5:bottom_x + 5]
+
+        # Processing for neural network
         image_crop = cv2.bitwise_not(image_crop)
         image_crop = cv2.equalizeHist(image_crop)
-        # Processing for neural network
 
+        # Check for successfull crop and process image
         if image_crop is not None:
             image_processed, state = processing(image_crop)
     # '''
         # !! Prediction !!
-        # Skip manually by boday ratio
+        # Skip manually by ratio
         if state == True:
             class_index, prob_value = 1, 1
 
